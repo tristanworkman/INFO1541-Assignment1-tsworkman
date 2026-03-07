@@ -45,6 +45,8 @@ public final class HourlyEmployee extends Employee {
     {
         if (h > 0) {
             hoursWorked += h;
+        } else {
+            System.out.println("Hours must be greater than 0");
         }
     }
 
@@ -75,10 +77,10 @@ public final class HourlyEmployee extends Employee {
         double pay = wage * hoursWorked;
         if (hoursWorked > 40)
         {
-            pay = wage * 40 + (wage*1.25) * (hoursWorked-40);
+            pay = wage * 40 + (wage*1.5) * (hoursWorked-40); //changed wage * 1.25 to * 1.5
         }
         
-        return pay;
+        return (double) Math.round(pay * 100) / 100; //rounded it to the second decimal
     }
 
     /**
