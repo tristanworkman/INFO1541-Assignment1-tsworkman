@@ -1,17 +1,18 @@
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 class HourlyEmployeeTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void increaseHours()
     {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void calculateWeeklyPay()
     {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void annualRaise()
     {
     }
