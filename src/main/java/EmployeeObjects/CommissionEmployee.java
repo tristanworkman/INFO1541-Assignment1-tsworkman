@@ -43,7 +43,12 @@ public final class CommissionEmployee extends Employee {
      */
     public void increaseSales(double s)
     {
-        sales += s;
+        if (s > 0)
+        {
+            sales += s;
+        } else {
+            System.out.println("Sales amount is not greater than 0.");
+        }
     }
 
     /**
