@@ -8,10 +8,10 @@ import EmployeeBlueprints.EmployeeType;
  * @author lhartman2
  * @version 1.0.1
  */
-
+//annotation EmployeeType with type as 'Commission'
 @EmployeeObjects.EmployeeType(type = "Commission")
 public final class CommissionEmployee extends Employee {
-    @PayRate(type = "Commission")
+    @PayRate(type = "Commission") //annotation PayRate with type as 'Commission'
     private double sales;
     private double rate;
 
@@ -74,7 +74,7 @@ public final class CommissionEmployee extends Employee {
      * @return a double for the pay
      */
     @Override
-    @WeeklyPayCalculator
+    @WeeklyPayCalculator //annotation WeeklyPayCalculator
     public double calculateWeeklyPay()
     {
         return rate * sales;

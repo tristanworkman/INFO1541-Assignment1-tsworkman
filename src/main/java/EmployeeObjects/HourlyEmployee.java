@@ -8,9 +8,10 @@ import EmployeeBlueprints.EmployeeType;
  * @author lhartman2
  * @version 1.0.1
  */
+//annotation EmployeeType with type as 'Hourly'
 @EmployeeObjects.EmployeeType(type = "Hourly")
 public final class HourlyEmployee extends Employee {
-    @PayRate(type = "Hourly")
+    @PayRate(type = "Hourly") //annotation PayRate with type as 'Hourly'
     private double wage;
     private double hoursWorked;
 
@@ -73,7 +74,7 @@ public final class HourlyEmployee extends Employee {
      * @return a double for the weekly pay
      */
     @Override
-    @WeeklyPayCalculator
+    @WeeklyPayCalculator //annotation WeeklyPayCalculator
     public double calculateWeeklyPay()
     {
         double pay = wage * hoursWorked;
