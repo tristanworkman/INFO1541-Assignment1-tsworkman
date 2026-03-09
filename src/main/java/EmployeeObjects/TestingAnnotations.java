@@ -25,14 +25,14 @@ public class TestingAnnotations
         employeesList.stream().sorted(Comparator.comparing(Employee::getEmployeeType)).forEach( //I wanted to sort the list, so I used streams and created a Comparator<? extends Employee> using method reference operator.
                 employee -> { //for each employee, I get class (it is a subclass of Employee)
                     Class<? extends Employee> employeeClass = employee.getClass();
-                    EmployeeType employeeTypeAnnotation = employeeClass.getAnnotation(EmployeeType.class); //I get the annotion of EmployeeType
+                    EmployeeType employeeTypeAnnotation = employeeClass.getAnnotation(EmployeeType.class); //I get the annotation of EmployeeType
                     Method[] methods = employeeClass.getDeclaredMethods(); //I also get all the methods.
 
                     System.out.println(employeeTypeAnnotation.type() + " Employee (" + employee.getEmployeeNumber() + " employee number)"); //I print out the type from the annotation value given with the employee number
                     try //try and catch
                     {
                         fieldTest(employeeClass, employee); //call fieldTest and pass in parameters
-                        methodTest(methods, employee, employeeTypeAnnotation); //call methodTest and pass in parameters
+                        methodTest(methods, employee); //call methodTest and pass in parameters
                     } catch (IllegalAccessException | InvocationTargetException e)
                     {
                         System.out.println("Error: " + e.getMessage()); //print error message
@@ -93,7 +93,7 @@ public class TestingAnnotations
             }
         }
     }
-    private static void methodTest(Method[] methods, Employee employee, EmployeeType employeeTypeAnnotation) throws InvocationTargetException, IllegalAccessException
+    private static void methodTest(Method[] methods, Employee employee) throws InvocationTargetException, IllegalAccessException
     {
         for (Method method : methods) { //loop through methods
             if (method.isAnnotationPresent(WeeklyPayCalculator.class)) { //if method has this annotation
